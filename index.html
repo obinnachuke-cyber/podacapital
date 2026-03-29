@@ -273,15 +273,15 @@
         <div class="metric-row">
           <div class="metric">
             <div class="metric-title">Capital on Hand</div>
-            <div class="metric-value">$255</div>
+           <div class="metric-value" id="capitalOnHand"></div>
           </div>
           <div class="metric">
             <div class="metric-title">Inventory (Cost)</div>
-            <div class="metric-value">$650</div>
+            <div class="metric-value" id="inventoryCost"></div>
           </div>
           <div class="metric">
             <div class="metric-title">Net P&L</div>
-            <div class="metric-value">+$405</div>
+            <div class="metric-value" id="netPnL"></div>
           </div>
         </div>
 
@@ -366,22 +366,30 @@
 
   </div>
 
-  <script>
-    function showPage(event, id) {
-      document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
-      document.getElementById(id).classList.add('show');
+<script src="data.js"></script>
+<script>
+  function showPage(event, id) {
+    document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
 
-      document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+    document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
 
-    function showCapital(event, id) {
-      document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
-      document.getElementById(id).classList.add('show');
+  function showCapital(event, id) {
+    document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
 
-      document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+    document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // SET METRICS FROM DATA FILE
+  document.getElementById("capitalOnHand").textContent = siteData.metrics.capitalOnHand;
+  document.getElementById("inventoryCost").textContent = siteData.metrics.inventoryCost;
+  document.getElementById("netPnL").textContent = siteData.metrics.netPnL;
+</script>
+  
   </script>
 </body>
 </html>
