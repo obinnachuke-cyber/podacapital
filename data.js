@@ -17,13 +17,13 @@ const siteData = {
     {
       name: "Maison Margiela Piece",
       brand: "Maison Margiela",
-      note: "Held in the personal closet portfolio."
+      note: "Held in the personal closet portfolio.",
       image: "images/margiela-pants.jpg"
     },
     {
       name: "BAPE Hoodie",
       brand: "BAPE",
-      note: "Active personal hold, not currently listed."
+      note: "Active personal hold, not currently listed.",
       image: "images/bape-hoodie.jpg"
     }
   ],
@@ -34,7 +34,7 @@ const siteData = {
       brand: "Supreme",
       price: "$100",
       note: "Live listing available for purchase.",
-      link: "https://example.com"
+      link: "https://example.com",
       image: "images/supreme-jacket.jpg"
     },
     {
@@ -42,7 +42,7 @@ const siteData = {
       brand: "Maison Margiela",
       price: "$150",
       note: "Direct market-facing inventory.",
-      link: "https://example.com"
+      link: "https://example.com",
       image: "images/margiela-pants.jpg"
     }
   ],
@@ -51,13 +51,13 @@ const siteData = {
     {
       name: "Supreme Tee",
       brand: "Supreme",
-      note: "Realized trade with completed exit."
+      note: "Realized trade with completed exit.",
       image: "images/supreme-tee.jpg"
     },
     {
       name: "Margiela Shoes",
       brand: "Maison Margiela",
-      note: "Archived as realized portfolio activity."
+      note: "Archived as realized portfolio activity.",
       image: "images/margiela-shoes.jpg"
     }
   ]
