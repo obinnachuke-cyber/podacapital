@@ -43,6 +43,13 @@
       transition: 0.2s;
     }
 
+    /* ACTIVE BUTTON STYLE */
+    .nav button.active {
+      background: #2d1746;
+      color: white;
+      border-color: #2d1746;
+    }
+
     .nav button:hover {
       border-color: #2d1746;
       color: #2d1746;
@@ -86,9 +93,10 @@
   <div class="sub">An open system of cultural capital.</div>
 
   <div class="nav">
-    <button onclick="show('newsletter')">Newsletter</button>
-    <button onclick="show('closet')">Closet</button>
-    <button onclick="show('sold')">Sold</button>
+    <button class="active" onclick="show(event, 'newsletter')">Newsletter</button>
+    <button onclick="show(event, 'closet')">Closet</button>
+    <button onclick="show(event, 'listed')">Listed</button>
+    <button onclick="show(event, 'sold')">Sold</button>
   </div>
 
   <div id="newsletter" class="section show">
@@ -107,6 +115,14 @@
     </div>
   </div>
 
+  <div id="listed" class="section">
+    <div class="label">Listed</div>
+    <div class="grid">
+      <div class="card">Supreme Jacket (Live)</div>
+      <div class="card">Margiela Pants (Live)</div>
+    </div>
+  </div>
+
   <div id="sold" class="section">
     <div class="label">Sold</div>
     <div class="grid">
@@ -118,9 +134,18 @@
 </div>
 
 <script>
-function show(id) {
+function show(event, id) {
+  // hide all sections
   document.querySelectorAll('.section').forEach(el => el.classList.remove('show'));
+
+  // show selected section
   document.getElementById(id).classList.add('show');
+
+  // remove active from all buttons
+  document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
+
+  // add active to clicked button
+  event.target.classList.add('active');
 }
 </script>
 
