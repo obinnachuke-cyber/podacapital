@@ -339,20 +339,9 @@
           </div>
         </div>
 
-        <div id="listed" class="capital-section">
-          <div class="grid">
-            <div class="card">
-              <div class="label">Listed</div>
-              <h2>Supreme Jacket</h2>
-              <p>Live listing available for purchase.</p>
-            </div>
-            <div class="card">
-              <div class="label">Listed</div>
-              <h2>Margiela Pants</h2>
-              <p>Direct market-facing inventory.</p>
-            </div>
-          </div>
-        </div>
+       <div id="listed" class="capital-section">
+  <div class="grid" id="listed-grid"></div>
+</div>
 
         <div id="sold" class="capital-section">
           <div class="grid">
@@ -417,29 +406,6 @@
     event.target.classList.add('active');
   }
 
-  // SET METRICS FROM DATA FILE
-  document.getElementById("capitalOnHand").textContent = siteData.metrics.capitalOnHand;
-  document.getElementById("inventoryCost").textContent = siteData.metrics.inventoryCost;
-  document.getElementById("netPnL").textContent = siteData.metrics.netPnL;
-
-  <script src="data.js"></script>
-<script>
-  function showPage(event, id) {
-    document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
-    document.getElementById(id).classList.add('show');
-
-    document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-
-  function showCapital(event, id) {
-    document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
-    document.getElementById(id).classList.add('show');
-
-    document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-
   document.getElementById("capitalOnHand").textContent = siteData.metrics.capitalOnHand;
   document.getElementById("inventoryCost").textContent = siteData.metrics.inventoryCost;
   document.getElementById("netPnL").textContent = siteData.metrics.netPnL;
@@ -448,7 +414,7 @@
 
   listedGrid.innerHTML = siteData.listed.map(item => `
     <div class="card">
-      <img src="${item.image}" alt="${item.name}" class="product-image">
+      <img src="${item.image}" class="product-image">
       <div class="label">Listed</div>
       <div class="item-brand">${item.brand}</div>
       <h2>${item.name}</h2>
@@ -458,7 +424,5 @@
     </div>
   `).join("");
 </script>
-</script>
-
 </body>
 </html>
