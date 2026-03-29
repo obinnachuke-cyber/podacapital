@@ -14,53 +14,80 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 60px 24px;
+      padding: 32px 24px 60px 24px;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 6px;
-      letter-spacing: -1px;
-    }
-
-    .sub {
-      color: #666;
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 36px 0;
+      border-bottom: 1px solid #eee;
       margin-bottom: 40px;
     }
 
-    .nav {
+    .brand {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .topnav-links {
       display: flex;
       gap: 12px;
-      margin-bottom: 40px;
     }
 
-    .nav button {
-      padding: 10px 18px;
+    .topnav-links button {
+      padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid #ddd;
       background: white;
+      color: black;
       cursor: pointer;
       transition: 0.2s;
+      font-size: 14px;
     }
 
-    /* ACTIVE BUTTON STYLE */
-    .nav button.active {
+    .topnav-links button.active {
       background: #2d1746;
       color: white;
       border-color: #2d1746;
     }
 
-    .nav button:hover {
+    .topnav-links button:hover {
       border-color: #2d1746;
       color: #2d1746;
     }
 
-    .section {
+    .page {
       display: none;
     }
 
-    .show {
+    .page.show {
       display: block;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin: 0 0 8px 0;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .sub {
+      color: #666;
+      margin-bottom: 36px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .section {
+      margin-bottom: 56px;
     }
 
     .card {
@@ -68,6 +95,7 @@
       border-radius: 20px;
       padding: 24px;
       margin-bottom: 20px;
+      background: white;
     }
 
     .label {
@@ -75,6 +103,7 @@
       letter-spacing: 0.15em;
       color: #2d1746;
       margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
     .grid {
@@ -82,72 +111,277 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+
+    .newsletter-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .newsletter-cta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .newsletter-cta a {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid #2d1746;
+      background: #2d1746;
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .capital-toggle {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .capital-toggle button {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: white;
+      color: black;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+
+    .capital-toggle button.active {
+      background: #2d1746;
+      color: white;
+      border-color: #2d1746;
+    }
+
+    .capital-toggle button:hover {
+      border-color: #2d1746;
+      color: #2d1746;
+    }
+
+    .capital-section {
+      display: none;
+    }
+
+    .capital-section.show {
+      display: block;
+    }
+
+    .metric-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .metric {
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 18px 20px;
+      min-width: 180px;
+    }
+
+    .metric-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2d1746;
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    @media (max-width: 800px) {
+      .newsletter-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topnav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-<div class="container">
-
-  <h1>poda capital</h1>
-  <div class="sub">An open system of cultural capital.</div>
-
-  <div class="nav">
-    <button class="active" onclick="show(event, 'newsletter')">Newsletter</button>
-    <button onclick="show(event, 'closet')">Closet</button>
-    <button onclick="show(event, 'listed')">Listed</button>
-    <button onclick="show(event, 'sold')">Sold</button>
-  </div>
-
-  <div id="newsletter" class="section show">
-    <div class="card">
-      <div class="label">Newsletter</div>
-      <h2>Investor memos on culture</h2>
-      <p>This will connect to your Substack.</p>
+    <div class="topnav">
+      <div class="brand">poda capital</div>
+      <div class="topnav-links">
+        <button class="active" onclick="showPage(event, 'home-page')">Home</button>
+        <button onclick="showPage(event, 'about-page')">About</button>
+      </div>
     </div>
-  </div>
 
-  <div id="closet" class="section">
-    <div class="label">Closet</div>
-    <div class="grid">
-      <div class="card">Maison Margiela Piece</div>
-      <div class="card">BAPE Hoodie</div>
+    <div id="home-page" class="page show">
+      <div class="section">
+        <h1>Culture as capital.</h1>
+        <div class="sub">
+          A public system for tracking second-hand fashion assets, capital deployment, and realized outcomes.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="newsletter-layout">
+          <div class="card newsletter-cta">
+            <div>
+              <div class="label">Newsletter</div>
+              <h2>Investor memos on culture, resale, and market signals.</h2>
+              <p>
+                The newsletter is the editorial arm of poda capital — short notes on trends, liquidity, cultural pricing, and what sits behind the moves.
+              </p>
+            </div>
+            <a href="https://your-substack-url.substack.com/" target="_blank">Read / Subscribe</a>
+          </div>
+
+          <div class="card">
+            <div class="label">Latest Note</div>
+            <h2>Why Liquidity Matters More Than Margin</h2>
+            <p>
+              A short note on why tied-up capital quietly kills momentum, even when individual pieces look profitable.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="label">Closet Capital</div>
+        <h2>Portfolio state</h2>
+
+        <div class="metric-row">
+          <div class="metric">
+            <div class="metric-title">Capital on Hand</div>
+            <div class="metric-value">$255</div>
+          </div>
+          <div class="metric">
+            <div class="metric-title">Inventory (Cost)</div>
+            <div class="metric-value">$650</div>
+          </div>
+          <div class="metric">
+            <div class="metric-title">Net P&L</div>
+            <div class="metric-value">+$405</div>
+          </div>
+        </div>
+
+        <div class="capital-toggle">
+          <button class="active" onclick="showCapital(event, 'closet')">Closet</button>
+          <button onclick="showCapital(event, 'listed')">Listed</button>
+          <button onclick="showCapital(event, 'sold')">Sold</button>
+        </div>
+
+        <div id="closet" class="capital-section show">
+          <div class="grid">
+            <div class="card">
+              <div class="label">Closet</div>
+              <h2>Maison Margiela Piece</h2>
+              <p>Held position inside the personal closet portfolio.</p>
+            </div>
+            <div class="card">
+              <div class="label">Closet</div>
+              <h2>BAPE Hoodie</h2>
+              <p>Active personal hold, not currently listed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="listed" class="capital-section">
+          <div class="grid">
+            <div class="card">
+              <div class="label">Listed</div>
+              <h2>Supreme Jacket</h2>
+              <p>Live listing available for purchase.</p>
+            </div>
+            <div class="card">
+              <div class="label">Listed</div>
+              <h2>Margiela Pants</h2>
+              <p>Direct market-facing inventory.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="sold" class="capital-section">
+          <div class="grid">
+            <div class="card">
+              <div class="label">Sold</div>
+              <h2>Supreme Tee</h2>
+              <p>Realized trade with completed exit.</p>
+            </div>
+            <div class="card">
+              <div class="label">Sold</div>
+              <h2>Margiela Shoes</h2>
+              <p>Archived as realized portfolio activity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div id="listed" class="section">
-    <div class="label">Listed</div>
-    <div class="grid">
-      <div class="card">Supreme Jacket (Live)</div>
-      <div class="card">Margiela Pants (Live)</div>
+    <div id="about-page" class="page">
+      <div class="section">
+        <div class="label">About</div>
+        <h1>What is poda capital?</h1>
+        <div class="sub">
+          poda capital is a public experiment in treating fashion and second-hand goods like capital.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Framework</div>
+        <h2>Buy. Hold or list. Sell or archive.</h2>
+        <p>
+          The project documents how pieces are acquired, managed, and exited with financial discipline. 
+          The closet functions like a portfolio. The newsletter functions like the memo layer.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="label">Why it exists</div>
+        <p>
+          Most resale content shows aesthetics or outcomes. poda capital is built to show process, capital movement, and the logic behind decisions.
+        </p>
+      </div>
     </div>
+
   </div>
 
-  <div id="sold" class="section">
-    <div class="label">Sold</div>
-    <div class="grid">
-      <div class="card">Supreme Tee — Sold</div>
-      <div class="card">Margiela Shoes — Sold</div>
-    </div>
-  </div>
+  <script>
+    function showPage(event, id) {
+      document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
 
-</div>
+      document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
 
-<script>
-function show(event, id) {
-  // hide all sections
-  document.querySelectorAll('.section').forEach(el => el.classList.remove('show'));
+    function showCapital(event, id) {
+      document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
 
-  // show selected section
-  document.getElementById(id).classList.add('show');
-
-  // remove active from all buttons
-  document.querySelectorAll('.nav button').forEach(btn => btn.classList.remove('active'));
-
-  // add active to clicked button
-  event.target.classList.add('active');
-}
-</script>
-
+      document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
