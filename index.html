@@ -1,60 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Poda Capital</title>
+  <title>poda capital</title>
   <style>
     body {
-      background: black;
-      color: white;
-      font-family: Arial;
-      padding: 40px;
+      background: white;
+      color: black;
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    .nav {
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+
+    .sub {
+      color: #666;
       margin-bottom: 40px;
     }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
     .nav button {
-      margin-right: 10px;
-      padding: 10px;
-      background: #1a1a1a;
-      color: white;
-      border: 1px solid #333;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: white;
       cursor: pointer;
+      transition: 0.2s;
     }
-    .active {
-      border: 1px solid purple;
+
+    .nav button:hover {
+      border-color: #2d1746;
+      color: #2d1746;
     }
+
     .section {
       display: none;
     }
+
     .show {
       display: block;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: #2d1746;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>PODA CAPITAL</h1>
+<div class="container">
 
-<div class="nav">
-  <button onclick="show('newsletter')">Newsletter</button>
-  <button onclick="show('closet')">Closet</button>
-  <button onclick="show('sold')">Sold</button>
-</div>
+  <h1>poda capital</h1>
+  <div class="sub">An open system of cultural capital.</div>
 
-<div id="newsletter" class="section show">
-  <h2>Newsletter</h2>
-  <p>Substack content goes here</p>
-</div>
+  <div class="nav">
+    <button onclick="show('newsletter')">Newsletter</button>
+    <button onclick="show('closet')">Closet</button>
+    <button onclick="show('sold')">Sold</button>
+  </div>
 
-<div id="closet" class="section">
-  <h2>Closet</h2>
-  <p>Listed inventory goes here</p>
-</div>
+  <div id="newsletter" class="section show">
+    <div class="card">
+      <div class="label">Newsletter</div>
+      <h2>Investor memos on culture</h2>
+      <p>This will connect to your Substack.</p>
+    </div>
+  </div>
 
-<div id="sold" class="section">
-  <h2>Sold</h2>
-  <p>Sold items go here</p>
+  <div id="closet" class="section">
+    <div class="label">Closet</div>
+    <div class="grid">
+      <div class="card">Maison Margiela Piece</div>
+      <div class="card">BAPE Hoodie</div>
+    </div>
+  </div>
+
+  <div id="sold" class="section">
+    <div class="label">Sold</div>
+    <div class="grid">
+      <div class="card">Supreme Tee — Sold</div>
+      <div class="card">Margiela Shoes — Sold</div>
+    </div>
+  </div>
+
 </div>
 
 <script>
