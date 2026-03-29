@@ -324,41 +324,17 @@
           <button onclick="showCapital(event, 'sold')">Sold</button>
         </div>
 
-        <div id="closet" class="capital-section show">
-          <div class="grid">
-            <div class="card">
-              <div class="label">Closet</div>
-              <h2>Maison Margiela Piece</h2>
-              <p>Held position inside the personal closet portfolio.</p>
-            </div>
-            <div class="card">
-              <div class="label">Closet</div>
-              <h2>BAPE Hoodie</h2>
-              <p>Active personal hold, not currently listed.</p>
-            </div>
-          </div>
-        </div>
+<div id="closet" class="capital-section show">
+  <div class="grid" id="closet-grid"></div>
+</div>
 
        <div id="listed" class="capital-section">
   <div class="grid" id="listed-grid"></div>
 </div>
 
-        <div id="sold" class="capital-section">
-          <div class="grid">
-            <div class="card">
-              <div class="label">Sold</div>
-              <h2>Supreme Tee</h2>
-              <p>Realized trade with completed exit.</p>
-            </div>
-            <div class="card">
-              <div class="label">Sold</div>
-              <h2>Margiela Shoes</h2>
-              <p>Archived as realized portfolio activity.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div id="sold" class="capital-section">
+  <div class="grid" id="sold-grid"></div>
+</div>
 
     <div id="about-page" class="page">
       <div class="section">
@@ -423,6 +399,30 @@
       <a href="${item.link}" target="_blank" class="buy-button">Buy</a>
     </div>
   `).join("");
+
+  const closetGrid = document.getElementById("closet-grid");
+
+closetGrid.innerHTML = siteData.closet.map(item => `
+  <div class="card">
+    <img src="${item.image}" class="product-image" alt="${item.name}">
+    <div class="label">Closet</div>
+    <div class="item-brand">${item.brand}</div>
+    <h2>${item.name}</h2>
+    <p>${item.note}</p>
+  </div>
+`).join("");
+
+  const soldGrid = document.getElementById("sold-grid");
+
+soldGrid.innerHTML = siteData.sold.map(item => `
+  <div class="card">
+    <img src="${item.image}" class="product-image" alt="${item.name}">
+    <div class="label">Sold</div>
+    <div class="item-brand">${item.brand}</div>
+    <h2>${item.name}</h2>
+    <p>${item.note}</p>
+  </div>
+`).join("");
 </script>
 </body>
 </html>
