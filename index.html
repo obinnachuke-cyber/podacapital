@@ -221,6 +221,39 @@
         gap: 14px;
       }
     }
+    .product-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background: #f4f4f4;
+}
+
+.item-brand {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.item-price {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 14px 0 10px 0;
+}
+
+.buy-button {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #2d1746;
+  background: #2d1746;
+  color: white;
+  text-decoration: none;
+}
   </style>
 </head>
 
@@ -388,8 +421,44 @@
   document.getElementById("capitalOnHand").textContent = siteData.metrics.capitalOnHand;
   document.getElementById("inventoryCost").textContent = siteData.metrics.inventoryCost;
   document.getElementById("netPnL").textContent = siteData.metrics.netPnL;
+
+  <script src="data.js"></script>
+<script>
+  function showPage(event, id) {
+    document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+
+    document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  function showCapital(event, id) {
+    document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+
+    document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  document.getElementById("capitalOnHand").textContent = siteData.metrics.capitalOnHand;
+  document.getElementById("inventoryCost").textContent = siteData.metrics.inventoryCost;
+  document.getElementById("netPnL").textContent = siteData.metrics.netPnL;
+
+  const listedGrid = document.getElementById("listed-grid");
+
+  listedGrid.innerHTML = siteData.listed.map(item => `
+    <div class="card">
+      <img src="${item.image}" alt="${item.name}" class="product-image">
+      <div class="label">Listed</div>
+      <div class="item-brand">${item.brand}</div>
+      <h2>${item.name}</h2>
+      <p>${item.note}</p>
+      <div class="item-price">${item.price}</div>
+      <a href="${item.link}" target="_blank" class="buy-button">Buy</a>
+    </div>
+  `).join("");
 </script>
-  
-  </script>
+</script>
+
 </body>
 </html>
