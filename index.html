@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poda Capital</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial;
+      padding: 40px;
+    }
+    .nav {
+      margin-bottom: 40px;
+    }
+    .nav button {
+      margin-right: 10px;
+      padding: 10px;
+      background: #1a1a1a;
+      color: white;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    .active {
+      border: 1px solid purple;
+    }
+    .section {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>PODA CAPITAL</h1>
+
+<div class="nav">
+  <button onclick="show('newsletter')">Newsletter</button>
+  <button onclick="show('closet')">Closet</button>
+  <button onclick="show('sold')">Sold</button>
+</div>
+
+<div id="newsletter" class="section show">
+  <h2>Newsletter</h2>
+  <p>Substack content goes here</p>
+</div>
+
+<div id="closet" class="section">
+  <h2>Closet</h2>
+  <p>Listed inventory goes here</p>
+</div>
+
+<div id="sold" class="section">
+  <h2>Sold</h2>
+  <p>Sold items go here</p>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(el => el.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+}
+</script>
+
+</body>
+</html>
