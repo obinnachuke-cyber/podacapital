@@ -22,30 +22,30 @@ function metricValue(metrics, key) {
 
 function populateFilters() {
   const brandFilter = document.getElementById("brandFilter");
-  const categoryFilter = document.getElementById("categoryFilter");
+  const sourceFilter = document.getElementById("sourceFilter");
 
-  if (!brandFilter || !categoryFilter) return;
+  if (!brandFilter || !sourceFilter) return;
 
   const allItems = [...appData.listed, ...appData.closet, ...appData.sold];
 
   const brands = [...new Set(allItems.map(item => item.brand).filter(Boolean))].sort();
-  const categories = [...new Set(allItems.map(item => item.category).filter(Boolean))].sort();
+  const sources = [...new Set(allItems.map(item => item.source).filter(Boolean))].sort();
 
   brandFilter.innerHTML = `<option value="">All Brands</option>` +
     brands.map(brand => `<option value="${brand}">${brand}</option>`).join("");
 
-  categoryFilter.innerHTML = `<option value="">All Categories</option>` +
-    categories.map(category => `<option value="${category}">${category}</option>`).join("");
+  sourceFilter.innerHTML = `<option value="">All Sources</option>` +
+    sources.map(source => `<option value="${source}">${source}</option>`).join("");
 }
 
 function filteredItems(items) {
   const brandValue = document.getElementById("brandFilter")?.value || "";
-  const categoryValue = document.getElementById("categoryFilter")?.value || "";
+  const sourceValue = document.getElementById("sourceFilter")?.value || "";
 
   return items.filter(item => {
     const brandMatch = !brandValue || item.brand === brandValue;
-    const categoryMatch = !categoryValue || item.category === categoryValue;
-    return brandMatch && categoryMatch;
+    const sourceMatch = !sourceValue || item.source === sourceValue;
+    return brandMatch && sourceMatch;
   });
 }
 
