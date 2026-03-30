@@ -8,6 +8,7 @@ const endpoints = {
   newsletters: `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=newsletters`
 };
 
+
 async function fetchCSV(url) {
   const res = await fetch(url);
   const text = await res.text();
