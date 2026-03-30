@@ -287,6 +287,27 @@
   border-top: 1px solid #eee;
   padding-top: 14px;
 }
+
+    .filter-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-row select {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: white;
+  color: black;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-row select:focus {
+  border-color: #2d1746;
+}
   </style>
 </head>
 
@@ -349,6 +370,16 @@
           <button onclick="showCapital(event, 'listed')">Listed</button>
           <button onclick="showCapital(event, 'sold')">Sold</button>
         </div>
+
+        <div class="filter-row">
+  <select id="brandFilter" onchange="applyFilters()">
+    <option value="">All Brands</option>
+  </select>
+
+  <select id="categoryFilter" onchange="applyFilters()">
+    <option value="">All Categories</option>
+  </select>
+</div>
 
         <div id="closet" class="capital-section show">
           <div class="grid" id="closet-grid"></div>
