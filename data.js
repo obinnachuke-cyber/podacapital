@@ -29,55 +29,71 @@ async function loadData() {
     if (inventoryCost) inventoryCost.textContent = metricValue(metrics, "inventoryCost");
     if (netPnL) netPnL.textContent = metricValue(metrics, "netPnL");
 
-    const listedGrid = document.getElementById("listed-grid");
-    if (listedGrid) {
-      listedGrid.innerHTML = listed
-        .filter(item => item.assetId)
-        .map(item => `
-          <div class="card">
-            <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
-            <div class="label">Listed</div>
-            <div class="item-brand">${item.brand || ""}</div>
-            <h2>${item.name || ""}</h2>
-            <p>${item.note || ""}</p>
-            <div class="item-price">${item.price || ""}</div>
-            <a href="${item.link || "#"}" target="_blank" class="buy-button">Buy</a>
-          </div>
-        `)
-        .join("");
-    }
+const listedGrid = document.getElementById("listed-grid");
+if (listedGrid) {
+  listedGrid.innerHTML = listed
+    .filter(item => item.assetId)
+    .map(item => `
+      <div class="card product-card">
+        <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
+        <div class="label">Listed</div>
+        <div class="item-brand">${item.brand || ""}</div>
+        <h2>${item.name || ""}</h2>
+        <div class="meta-row">
+          <span class="meta-pill">${item.source || ""}</span>
+          <span class="meta-pill">${item.condition || ""}</span>
+        </div>
+        <p>${item.note || ""}</p>
+        <div class="item-price">${item.price || ""}</div>
+        <a href="${item.link || "#"}" target="_blank" class="buy-button">Buy</a>
+      </div>
+    `)
+    .join("");
+}
 
-    const closetGrid = document.getElementById("closet-grid");
-    if (closetGrid) {
-      closetGrid.innerHTML = closet
-        .filter(item => item.assetId)
-        .map(item => `
-          <div class="card">
-            <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
-            <div class="label">Closet</div>
-            <div class="item-brand">${item.brand || ""}</div>
-            <h2>${item.name || ""}</h2>
-            <p>${item.note || ""}</p>
-          </div>
-        `)
-        .join("");
-    }
+ const closetGrid = document.getElementById("closet-grid");
+if (closetGrid) {
+  closetGrid.innerHTML = closet
+    .filter(item => item.assetId)
+    .map(item => `
+      <div class="card product-card">
+        <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
+        <div class="label">Closet</div>
+        <div class="item-brand">${item.brand || ""}</div>
+        <h2>${item.name || ""}</h2>
+        <div class="meta-row">
+          <span class="meta-pill">${item.source || ""}</span>
+          <span class="meta-pill">${item.condition || ""}</span>
+        </div>
+        <p>${item.note || ""}</p>
+      </div>
+    `)
+    .join("");
+}
 
-    const soldGrid = document.getElementById("sold-grid");
-    if (soldGrid) {
-      soldGrid.innerHTML = sold
-        .filter(item => item.assetId)
-        .map(item => `
-          <div class="card">
-            <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
-            <div class="label">Sold</div>
-            <div class="item-brand">${item.brand || ""}</div>
-            <h2>${item.name || ""}</h2>
-            <p>${item.note || ""}</p>
-          </div>
-        `)
-        .join("");
-    }
+const soldGrid = document.getElementById("sold-grid");
+if (soldGrid) {
+  soldGrid.innerHTML = sold
+    .filter(item => item.assetId)
+    .map(item => `
+      <div class="card product-card">
+        <img src="${imageFromAssetId(item.assetId)}" class="product-image" alt="${item.name}">
+        <div class="label">Sold</div>
+        <div class="item-brand">${item.brand || ""}</div>
+        <h2>${item.name || ""}</h2>
+        <div class="meta-row">
+          <span class="meta-pill">${item.source || ""}</span>
+          <span class="meta-pill">${item.condition || ""}</span>
+        </div>
+        <p>${item.note || ""}</p>
+        <div class="sold-meta">
+          <span>${item.soldPrice || ""}</span>
+          <span>${item.soldDate || ""}</span>
+        </div>
+      </div>
+    `)
+    .join("");
+}
 
     const newsletterGrid = document.getElementById("newsletter-grid");
     if (newsletterGrid) {
