@@ -150,8 +150,11 @@ async function loadData() {
     if (inventoryCost) inventoryCost.textContent = metricValue(appData.metrics, "inventoryCost");
     if (netPnL) netPnL.textContent = metricValue(appData.metrics, "netPnL");
 
-    populateFilters();
-    renderSection("closet");
+populateFilters();
+currentSection = "closet";
+renderSection("closet");
+renderSection("listed");
+renderSection("sold");
 
     const newsletterGrid = document.getElementById("newsletter-grid");
     if (newsletterGrid) {
