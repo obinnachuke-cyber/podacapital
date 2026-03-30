@@ -64,7 +64,7 @@ function renderSection(sectionName) {
             <div class="item-brand">${item.brand || ""}</div>
             <h2>${item.name || ""}</h2>
             <div class="meta-row">
-              <span class="meta-pill">${item.category || ""}</span>
+              <span class="meta-pill">${item.source || ""}</span>
               <span class="meta-pill">${item.condition || ""}</span>
             </div>
             <p>${item.note || ""}</p>
@@ -88,7 +88,7 @@ function renderSection(sectionName) {
             <div class="item-brand">${item.brand || ""}</div>
             <h2>${item.name || ""}</h2>
             <div class="meta-row">
-              <span class="meta-pill">${item.category || ""}</span>
+              <span class="meta-pill">${item.source || ""}</span>
               <span class="meta-pill">${item.condition || ""}</span>
             </div>
             <p>${item.note || ""}</p>
@@ -110,7 +110,7 @@ function renderSection(sectionName) {
             <div class="item-brand">${item.brand || ""}</div>
             <h2>${item.name || ""}</h2>
             <div class="meta-row">
-              <span class="meta-pill">${item.category || ""}</span>
+              <span class="meta-pill">${item.source || ""}</span>
               <span class="meta-pill">${item.condition || ""}</span>
             </div>
             <p>${item.note || ""}</p>
