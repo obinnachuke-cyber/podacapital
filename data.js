@@ -47,7 +47,7 @@ async function loadData() {
   document.getElementById("inventoryCost").textContent = metricMap.inventoryCost || "";
   document.getElementById("netPnL").textContent = metricMap.netPnL || "";
 
-  document.getElementById("listed-grid").innerHTML = listed.map(item => `
+  document.getElementById("listed-grid").innerHTML = listed.filter(item => item.assetId).map(item => `
     <div class="card">
       <img src="${imageFromAssetId(item.assetId)}" class="product-image">
       <div class="label">Listed</div>
@@ -59,7 +59,7 @@ async function loadData() {
     </div>
   `).join("");
 
-  document.getElementById("closet-grid").innerHTML = closet.map(item => `
+  document.getElementById("closet-grid").innerHTML = closet.filter(item => item.assetId).map(item => `
     <div class="card">
       <img src="${imageFromAssetId(item.assetId)}" class="product-image">
       <div class="label">Closet</div>
@@ -69,7 +69,7 @@ async function loadData() {
     </div>
   `).join("");
 
-  document.getElementById("sold-grid").innerHTML = sold.map(item => `
+  document.getElementById("sold-grid").innerHTML = sold.filter(item => item.assetId).map(item => `
     <div class="card">
       <img src="${imageFromAssetId(item.assetId)}" class="product-image">
       <div class="label">Sold</div>
