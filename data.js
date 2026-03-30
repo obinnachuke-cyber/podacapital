@@ -25,6 +25,7 @@ async function fetchCSV(url) {
 }
 
 function imageFromAssetId(assetId) {
+  if (!assetId) return "";
   return `images/${assetId}.jpg`;
 }
 
