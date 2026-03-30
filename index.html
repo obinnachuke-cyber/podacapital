@@ -507,22 +507,25 @@
   </div>
 
   <script src="data.js"></script>
-  <script>
-    function showPage(event, id) {
-      document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
-      document.getElementById(id).classList.add('show');
+<script>
+  function showPage(event, id) {
+    document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
 
-      document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+    document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
 
-    function showCapital(event, id) {
-      document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
-      document.getElementById(id).classList.add('show');
+  function showCapital(event, id) {
+    document.querySelectorAll('.capital-section').forEach(el => el.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
 
-      document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
+    document.querySelectorAll('.capital-toggle button').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    currentSection = id;
+    applyFilters();
+  }
+</script>
 </body>
 </html>
