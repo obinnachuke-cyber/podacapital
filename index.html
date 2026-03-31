@@ -62,8 +62,7 @@
   }
 
   .topnav-links button,
-  .capital-toggle button,
-  .filter-row select {
+  .capital-toggle button {
     height: 42px;
     padding: 0 18px;
     border-radius: 999px;
@@ -86,8 +85,7 @@
   }
 
   .topnav-links button:hover,
-  .capital-toggle button:hover,
-  .filter-row select:hover {
+  .capital-toggle button:hover {
     border-color: var(--plum);
     color: var(--plum);
   }
@@ -227,18 +225,86 @@
     flex-wrap: wrap;
   }
 
-  .filter-row select {
-    min-width: 150px;
-    appearance: none;
-    background-image:
-      linear-gradient(45deg, transparent 50%, var(--plum) 50%),
-      linear-gradient(135deg, var(--plum) 50%, transparent 50%);
-    background-position:
-      calc(100% - 18px) calc(50% - 2px),
-      calc(100% - 12px) calc(50% - 2px);
-    background-size: 6px 6px, 6px 6px;
-    background-repeat: no-repeat;
-    padding-right: 34px;
+  .custom-dropdown {
+    position: relative;
+  }
+
+  .filter-trigger {
+    height: 42px;
+    min-width: 160px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    color: #111111;
+    cursor: pointer;
+    transition: border-color 0.18s ease;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .filter-trigger:hover {
+    border-color: #aaaaaa;
+  }
+
+  .filter-trigger-label {
+    white-space: nowrap;
+  }
+
+  .filter-chevron {
+    font-size: 12px;
+    line-height: 1;
+    color: #555555;
+  }
+
+  .filter-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 100;
+    min-width: 160px;
+    padding: 6px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-panel.show {
+    display: block;
+  }
+
+  .filter-option {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    color: #111111;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .filter-option:hover {
+    background: #f5f5f5;
+  }
+
+  .filter-option.selected {
+    font-weight: 500;
+  }
+
+  .filter-check {
+    width: 12px;
+    color: #111111;
   }
 
   .capital-section {
@@ -276,6 +342,125 @@
     letter-spacing: -0.05em;
   }
 
+  .dashboard-surface {
+    background: #F7F6F3;
+    border-radius: 24px;
+    padding: 28px;
+  }
+
+  .kpi-bar {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    margin-bottom: 22px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  .kpi-item {
+    padding: 18px 18px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .kpi-item + .kpi-item {
+    border-left: 1px solid #eeeeee;
+  }
+
+  .kpi-value {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: #111111;
+  }
+
+  .kpi-label {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: 650;
+  }
+
+  .kpi-value.positive {
+    color: #16A34A;
+  }
+
+  .kpi-value.negative {
+    color: #DC2626;
+  }
+
+  .dashboard-row2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .panel {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 18px;
+  }
+
+  .panel-title {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .stat-tiles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-tile {
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 14px 14px;
+  }
+
+  .stat-tile-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #999999;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .stat-tile-value {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #111111;
+    line-height: 1.15;
+  }
+
+  .chart-wrap {
+    height: 280px;
+  }
+
+  .chart-wrap.tall {
+    height: 260px;
+  }
+
+  .chart-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   p {
     margin: 0;
     line-height: 1.65;
@@ -284,32 +469,138 @@
   }
 
   .product-card {
-    padding: 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100%;
   }
 
   .product-card h2 {
-    font-size: 22px;
-    line-height: 1.08;
+    font-size: 18px;
+    line-height: 1.2;
     margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .product-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #f0f0f0; /* fallback while images load */
+    overflow: hidden;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .product-image {
     width: 100%;
-    height: 320px;
+    height: 100%;
+    display: block;
     object-fit: cover;
-    border-radius: 18px;
-    margin-bottom: 16px;
-    background: linear-gradient(180deg, #f6f3f8 0%, #efedf2 100%);
-    border: 1px solid #f0ebf6;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
   }
 
-  .item-brand {
+  .product-card-body {
+    padding: 18px;
+    padding-top: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 4px;
+    font-weight: 650;
+  }
+
+  .brand-label {
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-    margin-bottom: 8px;
-    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #555555;
+    margin-bottom: 4px;
+    font-weight: 750;
+  }
+
+  .item-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #ede9f6;
+    color: #6b46c1;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .product-card-footer {
+    border-top: 1px solid #eee;
+    padding: 12px 18px 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .sold-price {
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .sold-date {
+    font-size: 12px;
+    color: #999999;
+  }
+
+  .remove-overlay-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 24px rgba(17, 17, 17, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 2;
+  }
+
+  .remove-overlay-btn:hover {
+    transform: translateY(-1px);
   }
 
   .meta-row {
@@ -384,12 +675,37 @@
       flex-wrap: wrap;
     }
 
-    .product-image {
-      height: 260px;
+    .product-image-wrap {
+      aspect-ratio: 4 / 3;
     }
 
     h1 {
       font-size: 44px;
+    }
+
+    .dashboard-surface {
+      padding: 18px;
+    }
+
+    .kpi-bar {
+      grid-template-columns: 1fr;
+    }
+
+    .kpi-item + .kpi-item {
+      border-left: 0;
+      border-top: 1px solid #eeeeee;
+    }
+
+    .dashboard-row2 {
+      grid-template-columns: 1fr;
+    }
+
+    .chart-wrap {
+      height: 240px;
+    }
+
+    .chart-wrap.tall {
+      height: 240px;
     }
   }
 </style>
@@ -432,20 +748,72 @@
 
       <div class="section">
         <div class="label">Closet Capital</div>
-        <h2>Portfolio state</h2>
+        <h2>Portfolio Dashboard</h2>
 
-        <div class="metric-row">
-          <div class="metric">
-            <div class="metric-title">Capital on Hand</div>
-            <div class="metric-value" id="capitalOnHand"></div>
+        <div class="dashboard-surface">
+          <div class="kpi-bar" aria-label="Primary KPIs">
+            <div class="kpi-item">
+              <div class="kpi-value" id="kpiCapitalOnHand"></div>
+              <div class="kpi-label">Capital on Hand</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-value" id="kpiInventoryCost"></div>
+              <div class="kpi-label">Inventory Cost</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-value" id="kpiMarketValue"></div>
+              <div class="kpi-label">Market Value</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-value" id="kpiNetPnL"></div>
+              <div class="kpi-label">Net P&amp;L</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-value" id="kpiUnrealizedPnL"></div>
+              <div class="kpi-label">Unrealized P&amp;L</div>
+            </div>
           </div>
-          <div class="metric">
-            <div class="metric-title">Inventory (Cost)</div>
-            <div class="metric-value" id="inventoryCost"></div>
+
+          <div class="dashboard-row2">
+            <div class="panel">
+              <div class="panel-title">Capital by Status</div>
+              <div class="chart-wrap">
+                <canvas id="capitalByStatusChart"></canvas>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-title">Key stats</div>
+              <div class="stat-tiles">
+                <div class="stat-tile">
+                  <div class="stat-tile-label">Total items</div>
+                  <div class="stat-tile-value" id="statTotalItems"></div>
+                </div>
+                <div class="stat-tile">
+                  <div class="stat-tile-label">Avg days to sell</div>
+                  <div class="stat-tile-value" id="statAvgDaysToSell"></div>
+                </div>
+                <div class="stat-tile">
+                  <div class="stat-tile-label">Sell-through rate</div>
+                  <div class="stat-tile-value" id="statSellThroughRate"></div>
+                </div>
+                <div class="stat-tile">
+                  <div class="stat-tile-label">Best brand</div>
+                  <div class="stat-tile-value" id="statBestBrand"></div>
+                </div>
+                <div class="stat-tile">
+                  <div class="stat-tile-label">Avg markup</div>
+                  <div class="stat-tile-value" id="statAvgMarkupPct"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="metric">
-            <div class="metric-title">Net P&amp;L</div>
-            <div class="metric-value" id="netPnL"></div>
+
+          <div class="panel">
+            <div class="panel-title">Net P&amp;L Over Time</div>
+            <div class="chart-wrap tall">
+              <canvas id="netPnLOverTimeChart"></canvas>
+            </div>
           </div>
         </div>
 
@@ -456,14 +824,22 @@
         </div>
 
         <div class="filter-row">
-  <select id="brandFilter" onchange="applyFilters()">
-    <option value="">All Brands</option>
-  </select>
+          <div class="custom-dropdown" data-filter-name="brand">
+            <button id="brandFilterTrigger" class="filter-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="filter-trigger-label">All Brands</span>
+              <span class="filter-chevron">↓</span>
+            </button>
+            <div id="brandFilterPanel" class="filter-panel" role="listbox"></div>
+          </div>
 
-  <select id="categoryFilter" onchange="applyFilters()">
-    <option value="">All Categories</option>
-  </select>
-</div>
+          <div class="custom-dropdown" data-filter-name="source">
+            <button id="sourceFilterTrigger" class="filter-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="filter-trigger-label">All Sources</span>
+              <span class="filter-chevron">↓</span>
+            </button>
+            <div id="sourceFilterPanel" class="filter-panel" role="listbox"></div>
+          </div>
+        </div>
 
         <div id="closet" class="capital-section show">
           <div class="grid" id="closet-grid"></div>
@@ -506,6 +882,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="data.js"></script>
 <script>
   function showPage(event, id) {
@@ -524,7 +901,11 @@
     event.target.classList.add('active');
 
     currentSection = id;
-    applyFilters();
+    if (typeof resetFilters === "function") {
+      resetFilters();
+    } else {
+      applyFilters();
+    }
   }
 </script>
 </body>
