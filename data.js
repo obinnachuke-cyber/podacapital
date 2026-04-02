@@ -616,19 +616,47 @@ renderSection("closet");
 renderSection("listed");
 renderSection("sold");
 
-    const newsletterGrid = document.getElementById("newsletter-grid");
-    if (newsletterGrid) {
-      newsletterGrid.innerHTML = appData.newsletters
-        .map(item => `
-          <div class="card">
-            <div class="label">Latest Note</div>
-            <h2>${item.title || ""}</h2>
-            <p>${item.description || ""}</p>
-            <a href="${item.link || "#"}" target="_blank" class="buy-button">Read</a>
-          </div>
-        `)
-        .join("");
-    }
+const newsletterHero = document.getElementById("newsletter-hero");
+const newsletterPanels = document.getElementById("newsletter-panels");
+
+if (appData.newsletters.length) {
+  const item = appData.newsletters[0];
+
+  if (newsletterHero) {
+    newsletterHero.innerHTML = `
+      <div class="newsletter-hero-copy">
+        <div class="label">Newsletter</div>
+        <h2>${item["newsletter title"] || ""}</h2>
+        <p>${item["quick bio"] || ""}</p>
+      </div>
+      <div class="newsletter-actions">
+        <a href="https://podacapital.substack.com/" target="_blank" rel="noreferrer" class="buy-button">Read / Subscribe</a>
+      </div>
+    `;
+  }
+
+  if (newsletterPanels) {
+    newsletterPanels.innerHTML = `
+      <div class="card note-panel">
+        <div class="note-kicker">Latest Note</div>
+        <div class="note-title">${item.title || ""}</div>
+        <div class="note-description">${item["latest description"] || ""}</div>
+        <div class="note-link-row">
+          <a href="${item.link || "#"}" target="_blank" rel="noreferrer">Read Latest</a>
+        </div>
+      </div>
+
+      <div class="card note-panel">
+        <div class="note-kicker">Highlighted Note</div>
+        <div class="note-title">${item["monthly highlight"] || ""}</div>
+        <div class="note-description">${item["highlight description"] || ""}</div>
+        <div class="note-link-row">
+          <a href="${item["mh link"] || "#"}" target="_blank" rel="noreferrer">Read Highlight</a>
+        </div>
+      </div>
+    `;
+  }
+}
   } catch (err) {
     console.error("loadData failed:", err);
   }
