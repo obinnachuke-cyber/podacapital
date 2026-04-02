@@ -903,6 +903,15 @@
       applyFilters();
     }
   }
+  function goHome() {
+  // show home page
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('show'));
+  document.getElementById('home-page').classList.add('show');
+
+  // update nav buttons
+  document.querySelectorAll('.topnav-links button').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('.topnav-links button').classList.add('active');
+}
 </script>
 </body>
 </html>
