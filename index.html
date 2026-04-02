@@ -708,6 +708,105 @@
       height: 240px;
     }
   }
+    .newsletter-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.newsletter-hero {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+  justify-content: center;
+}
+
+.newsletter-hero-copy {
+  max-width: 760px;
+}
+
+.newsletter-hero h2 {
+  margin-bottom: 6px;
+}
+
+.newsletter-hero p {
+  max-width: 760px;
+}
+
+.newsletter-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.newsletter-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.note-panel {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 260px;
+}
+
+.note-kicker {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plum);
+  font-weight: 700;
+}
+
+.note-title {
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 760;
+  color: var(--text);
+}
+
+.note-description {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.note-link-row {
+  margin-top: auto;
+}
+
+.note-link-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--plum);
+  background: var(--plum);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.note-link-row a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(45, 23, 70, 0.24);
+}
+
+@media (max-width: 900px) {
+  .newsletter-panels {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
@@ -731,18 +830,13 @@
         </div>
       </div>
 
-      <div class="section">
-        <div class="newsletter-layout">
-          <div class="card newsletter-cta">
-            <div>
-              <div class="label">Newsletter</div>
-              <h2>Investor memos on culture, resale, and market signals.</h2>
-              <p>
-                The newsletter is the editorial arm of poda capital — short notes on trends, liquidity, cultural pricing, and what sits behind the moves.
-              </p>
-            </div>
-            <a href="https://podacapital.substack.com/" target="_blank" rel="noreferrer">Read / Subscribe</a>
-          </div>
+<div class="section">
+  <div class="newsletter-shell">
+    <div class="card newsletter-hero" id="newsletter-hero"></div>
+
+    <div class="newsletter-panels" id="newsletter-panels"></div>
+  </div>
+</div>
 
           <div class="grid" id="newsletter-grid"></div>
         </div>
