@@ -398,7 +398,7 @@
 
   .dashboard-row2 {
     display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+    grid-template-columns: 1fr;
     gap: 18px;
     margin-bottom: 18px;
   }
@@ -774,13 +774,7 @@
             </div>
           </div>
 
-          <div class="dashboard-row2">
-            <div class="panel">
-              <div class="panel-title">Capital by Status</div>
-              <div class="chart-wrap">
-                <canvas id="capitalByStatusChart"></canvas>
-              </div>
-            </div>
+
 
             <div class="panel">
               <div class="panel-title">Key stats</div>
@@ -882,7 +876,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="data.js"></script>
 <script>
   function showPage(event, id) {
